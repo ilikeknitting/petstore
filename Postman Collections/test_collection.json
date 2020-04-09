@@ -397,7 +397,24 @@
         },
         {
           "name": "Add a new pet to the store",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "ab5ea6db-0027-4327-a285-346c9600ce1c",
+                "exec": [
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "330a6439-a7ce-4af5-8e38-c42dfe63e24b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "POST",
             "header": [],
