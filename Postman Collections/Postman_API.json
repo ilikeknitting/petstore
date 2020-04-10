@@ -346,6 +346,177 @@
           ]
         },
         {
+          "name": "Single Collection  Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"response is ok\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"response json data should not have errors\", function () {",
+                  "    pm.response.to.have.jsonBody();",
+                  "    pm.response.to.not.have.jsonBody('error');",
+                  "});",
+                  "",
+                  "pm.test(\"response json should contain one collection\", function () {",
+                  "    pm.expect(pm.response.json()).to.have.property('collection').and.be.an('object');",
+                  "});",
+                  "",
+                  "// additional tests to ensure that the relevant environment variables are present",
+                  "pm.test('\"postman_api_key\" variable should be present', function () {",
+                  "    pm.expect(pm.variables.get('postman_api_key')).to.be.a('string');",
+                  "});",
+                  "",
+                  "// you can unskip this test in case you want to have a stricter check on the selected",
+                  "// environment.",
+                  "pm.test.skip('\"collection_uid\" variable should be present', function () {",
+                  "    pm.expect(pm.variables.get('collection_uid')).to.be.a('string');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "bee9d749-02a6-4e6d-b61c-9c838db3a349",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Api-Key",
+                "value": "{{postman_api_key}}"
+              }
+            ],
+            "url": "https://api.getpostman.com/collections/{{collection_uid}}",
+            "description": "Access the contents of a collection that is accessible to you using its unique id (`uid`).\n\n> Requires <a href=\"#authentication\">API Key</a> as `X-Api-Key` request header or `apikey` URL query parameter."
+          },
+          "response": [
+            {
+              "id": "3f1acf9c-8dd1-4c6f-9624-33d8b2e44b7a",
+              "name": "Valid Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{postman_api_key}}"
+                  }
+                ],
+                "url": "https://api.getpostman.com/collections/{{collection_uid}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "javascript",
+              "header": [
+                {
+                  "name": "Access-Control-Allow-Credentials",
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Headers",
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Methods",
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Origin",
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Expose-Headers",
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Connection",
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Encoding",
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Type",
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "description": ""
+                },
+                {
+                  "name": "Date",
+                  "key": "Date",
+                  "value": "Fri, 27 May 2016 21:37:31 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "ETag",
+                  "key": "ETag",
+                  "value": "W/\"453-t7Du3QMg1i7hkk6S4e3NvA\"",
+                  "description": ""
+                },
+                {
+                  "name": "Server",
+                  "key": "Server",
+                  "value": "nginx/1.8.1",
+                  "description": ""
+                },
+                {
+                  "name": "Vary",
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Limit",
+                  "key": "X-RateLimit-Limit",
+                  "value": "60",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Remaining",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "57",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Reset",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1464385067",
+                  "description": ""
+                },
+                {
+                  "name": "transfer-encoding",
+                  "key": "transfer-encoding",
+                  "value": "chunked",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"collection\":{\"variables\":[],\"info\":{\"name\":\"Sample Collection\",\"_postman_id\":\"f2e66c2e-5297-e4a5-739e-20cbb90900e3\",\"description\":\"This is a sample collection that makes a tiny request to Postman Echo service to get the list of request headers sent by a HTTP client.\",\"schema\":\"https://schema.getpostman.com/json/collection/v2.0.0/collection.json\"},\"item\":[{\"id\":\"82ee981b-e19f-962a-401e-ea34ebfb4848\",\"name\":\"Request Headers\",\"event\":[{\"listen\":\"test\",\"script\":{\"type\":\"text/javascript\",\"exec\":\"var responseJSON;\\ntry {\\n    tests[\\\"Body contains headers\\\"] = responseBody.has(\\\"headers\\\");\\n    responseJSON = JSON.parse(responseBody);\\n    tests[\\\"Header contains host\\\"] = \\\"host\\\" in responseJSON.headers;\\n    tests[\\\"Header contains test parameter sent as part of request header\\\"] = \\\"my-sample-header\\\" in responseJSON.headers;\\n}\\ncatch (e) { }\\n\\n\\n\\n\"}}],\"request\":{\"url\":\"https://echo.getpostman.com/headers\",\"method\":\"GET\",\"header\":[{\"key\":\"my-sample-header\",\"value\":\"Lorem ipsum dolor sit amet\",\"description\":\"\"}],\"body\":{\"mode\":\"formdata\",\"formdata\":[]},\"description\":\"\"},\"response\":[]}]}}"
+            }
+          ]
+        },
+        {
           "name": "Create Collection",
           "event": [
             {
@@ -8212,7 +8383,7 @@
   ],
   "variable": [
     {
-      "id": "85f111d9-943d-4ccf-857e-7e6c96815671",
+      "id": "f840b79d-9976-42d1-8662-dc74c8ea15cc",
       "key": "postman_api_key",
       "value": "",
       "type": "string"
