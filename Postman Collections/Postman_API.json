@@ -3051,6 +3051,165 @@
               "body": "{\"error\":{\"name\":\"instanceNotFoundError\",\"message\":\"The specified environment does not exist.\"}}"
             }
           ]
+        },
+        {
+          "name": "Single Environment Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var responseJSON;",
+                  "",
+                  "// parse response body as JSON",
+                  "try { responseJSON = JSON.parse(responseBody); } catch (e) { }",
+                  "tests['received a valid response JSON'] = !!responseJSON;",
+                  "!responseJSON && (responseJSON = {});",
+                  "",
+                  "tests['status code is 200'] = (responseCode.code === 200);",
+                  "tests['response does not have errors'] = (!responseJSON.error);",
+                  "",
+                  "tests['response has an environment object'] = (typeof responseJSON.environment === 'object');"
+                ]
+              }
+            }
+          ],
+          "_postman_id": "6e563ae9-f739-430f-aa94-de2bf8c1714e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Api-Key",
+                "value": "{{postman_api_key}}"
+              }
+            ],
+            "url": "https://api.getpostman.com/environments/{{environment_uid}}",
+            "description": "Access the contents of an environment that is accessible to you using its unique id (`uid`).\n\n> Requires <a href=\"#authentication\">API Key</a> as `X-Api-Key` request header or `apikey` URL query parameter."
+          },
+          "response": [
+            {
+              "id": "9e7a7621-0e2e-4778-ba17-6029ee50257f",
+              "name": "Valid Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "X-Api-Key",
+                    "value": "{{postman_api_key}}"
+                  }
+                ],
+                "url": "https://api.getpostman.com/environments/{{environment_uid}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "javascript",
+              "header": [
+                {
+                  "name": "Access-Control-Allow-Credentials",
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Headers",
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Methods",
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Allow-Origin",
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Access-Control-Expose-Headers",
+                  "key": "Access-Control-Expose-Headers",
+                  "value": "",
+                  "description": ""
+                },
+                {
+                  "name": "Connection",
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Encoding",
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Length",
+                  "key": "Content-Length",
+                  "value": "172",
+                  "description": ""
+                },
+                {
+                  "name": "Content-Type",
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8",
+                  "description": ""
+                },
+                {
+                  "name": "Date",
+                  "key": "Date",
+                  "value": "Fri, 27 May 2016 21:29:40 GMT",
+                  "description": ""
+                },
+                {
+                  "name": "ETag",
+                  "key": "ETag",
+                  "value": "W/\"be-uio3LgF25RzA3k1qO7hl5A\"",
+                  "description": ""
+                },
+                {
+                  "name": "Server",
+                  "key": "Server",
+                  "value": "nginx/1.8.1",
+                  "description": ""
+                },
+                {
+                  "name": "Vary",
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Limit",
+                  "key": "X-RateLimit-Limit",
+                  "value": "60",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Remaining",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "57",
+                  "description": ""
+                },
+                {
+                  "name": "X-RateLimit-Reset",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1464384588",
+                  "description": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\"environment\":{\"id\":\"84a119b6-f4b1-9120-5f11-a73b17818d70\",\"name\":\"Postman Cloud API.template\",\"values\":[{\"key\":\"postman_api_key\",\"value\":\"\",\"type\":\"text\",\"enabled\":true,\"hovered\":false}]}}"
+            }
+          ]
         }
       ],
       "_postman_id": "63b1c155-a749-440d-8ef3-f32aafceb3dd"
@@ -8212,7 +8371,7 @@
   ],
   "variable": [
     {
-      "id": "549a7f6a-f808-4067-b3c5-2275325112a7",
+      "id": "21bba006-2c50-4903-a9d3-edb4d28f44f2",
       "key": "postman_api_key",
       "value": "",
       "type": "string"
