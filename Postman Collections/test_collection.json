@@ -619,106 +619,6 @@
           ]
         },
         {
-          "name": "Finds Pets by tags",
-          "_postman_id": "978c4a63-e23a-408f-854a-83a6d4c8974b",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/pet/findByTags?tags=",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "pet",
-                "findByTags"
-              ],
-              "query": [
-                {
-                  "description": "(Required) Tags to filter by",
-                  "key": "tags",
-                  "value": ""
-                }
-              ]
-            },
-            "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing."
-          },
-          "response": [
-            {
-              "id": "7077152e-2bd1-4917-9703-619c8022e6ad",
-              "name": "Invalid tag value",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/pet/findByTags?tags=",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "pet",
-                    "findByTags"
-                  ],
-                  "query": [
-                    {
-                      "key": "tags",
-                      "value": ""
-                    }
-                  ]
-                }
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "_postman_previewlanguage": "text",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": ""
-            },
-            {
-              "id": "b6f3724c-4c54-428d-8658-3ca10656fdf5",
-              "name": "successful operation",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "{{baseUrl}}/pet/findByTags?tags=",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "pet",
-                    "findByTags"
-                  ],
-                  "query": [
-                    {
-                      "key": "tags",
-                      "value": ""
-                    }
-                  ]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "text",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "cookie": [],
-              "responseTime": null,
-              "body": ""
-            }
-          ]
-        },
-        {
           "name": "Finds Pets by status Copy",
           "_postman_id": "e26043b2-faf6-4f70-9e64-34956a5f3a6f",
           "protocolProfileBehavior": {
@@ -801,6 +701,106 @@
                   "query": [
                     {
                       "key": "status",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "Finds Pets by tags",
+          "_postman_id": "978c4a63-e23a-408f-854a-83a6d4c8974b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/pet/findByTags?tags=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "pet",
+                "findByTags"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Tags to filter by",
+                  "key": "tags",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing."
+          },
+          "response": [
+            {
+              "id": "7077152e-2bd1-4917-9703-619c8022e6ad",
+              "name": "Invalid tag value",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/pet/findByTags?tags=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pet",
+                    "findByTags"
+                  ],
+                  "query": [
+                    {
+                      "key": "tags",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": ""
+            },
+            {
+              "id": "b6f3724c-4c54-428d-8658-3ca10656fdf5",
+              "name": "successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/pet/findByTags?tags=",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "pet",
+                    "findByTags"
+                  ],
+                  "query": [
+                    {
+                      "key": "tags",
                       "value": ""
                     }
                   ]
