@@ -529,12 +529,32 @@
         },
         {
           "name": "Finds Pets by status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "44447881-58ec-45d1-ab89-5199bf7f5fcd",
+                "exec": [
+                  "pm.test(\"Your test name\", function () {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.environment.set(\"whole body\", jsonData);",
+                  "});",
+                  "",
+                  "console.log(pm.environment.get(\"whole body\"));"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "cc8dd2e9-ffba-4f37-a2b3-23b4f610f295",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/pet/findByStatus?status=",
+              "raw": "{{baseUrl}}/pet/findByStatus?status=sold",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -544,9 +564,9 @@
               ],
               "query": [
                 {
-                  "description": "(Required) Status values that need to be considered for filter",
                   "key": "status",
-                  "value": ""
+                  "value": "sold",
+                  "description": "(Required) Status values that need to be considered for filter"
                 }
               ]
             },
@@ -1779,7 +1799,7 @@
   ],
   "variable": [
     {
-      "id": "602c4557-e05f-4e5f-afd2-7a874ad5195b",
+      "id": "c7c30c6f-2368-40ee-8a8e-c67fb4952274",
       "key": "baseUrl",
       "value": "petstore.swagger.io/v2",
       "type": "string"
