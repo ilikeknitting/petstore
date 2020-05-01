@@ -538,7 +538,9 @@
                   "pm.test(\"Your test name\", function () {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set(\"whole body\", jsonData);",
-                  "});"
+                  "});",
+                  "",
+                  "console.log(pm.environment.get(\"whole body\"));"
                 ],
                 "type": "text/javascript"
               }
@@ -1812,7 +1814,7 @@
   ],
   "variable": [
     {
-      "id": "2fc02590-2b3d-4f12-8957-f0425e8de9b0",
+      "id": "68873af7-0dfe-4b25-816a-9840a88976c9",
       "key": "baseUrl",
       "value": "petstore.swagger.io/v2",
       "type": "string"
