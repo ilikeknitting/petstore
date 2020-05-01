@@ -538,9 +538,7 @@
                   "pm.test(\"Your test name\", function () {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set(\"whole body\", jsonData);",
-                  "});",
-                  "",
-                  "console.log(pm.environment.get(\"whole body\"));"
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -649,7 +647,22 @@
         },
         {
           "name": "Finds Pets by tags",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "257db506-c630-463e-ba75-74d022987650",
+                "exec": [
+                  "console.log(pm.environment.get(\"whole body\")[0].id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "_postman_id": "978c4a63-e23a-408f-854a-83a6d4c8974b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
             "method": "GET",
             "header": [],
@@ -664,9 +677,9 @@
               ],
               "query": [
                 {
-                  "description": "(Required) Tags to filter by",
                   "key": "tags",
-                  "value": ""
+                  "value": "",
+                  "description": "(Required) Tags to filter by"
                 }
               ]
             },
@@ -1799,7 +1812,7 @@
   ],
   "variable": [
     {
-      "id": "c7c30c6f-2368-40ee-8a8e-c67fb4952274",
+      "id": "2fc02590-2b3d-4f12-8957-f0425e8de9b0",
       "key": "baseUrl",
       "value": "petstore.swagger.io/v2",
       "type": "string"
