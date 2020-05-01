@@ -1755,11 +1755,33 @@
       "_postman_id": "04962db5-23ee-4db9-bb90-96875d7b0e32"
     }
   ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "95bdcbd7-c27f-4a57-9483-6c2f063777f7",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "32aeb982-ed65-47ac-91cd-520e891e5f0b",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
   "variable": [
     {
-      "id": "baseUrl",
+      "id": "c461d7a2-7074-476a-826e-3fc724ff9a7e",
       "key": "baseUrl",
-      "value": "/",
+      "value": "petstore.swagger.io/v2",
       "type": "string"
     }
   ]
