@@ -668,7 +668,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"body\": \"{{whole body}}.tags\"\n}",
+              "raw": "{\n\t\"body\": \"{{whole body}}.id\"\n}",
               "options": {
                 "raw": {
                   "language": "javascript"
@@ -1821,7 +1821,7 @@
   ],
   "variable": [
     {
-      "id": "5266d458-a2d4-4ae7-bc3c-440b76c7b0eb",
+      "id": "956eb9f5-3afe-4695-bdd4-0c1d335f469e",
       "key": "baseUrl",
       "value": "petstore.swagger.io/v2",
       "type": "string"
