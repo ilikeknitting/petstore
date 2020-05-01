@@ -538,9 +538,7 @@
                   "pm.test(\"Your test name\", function () {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set(\"whole body\", jsonData);",
-                  "});",
-                  "",
-                  "console.log(pm.environment.get(\"whole body\"));"
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -668,6 +666,15 @@
           "request": {
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"body\": \"{{whole body}}.tags\"\n}",
+              "options": {
+                "raw": {
+                  "language": "javascript"
+                }
+              }
+            },
             "url": {
               "raw": "{{baseUrl}}/pet/findByTags?tags=",
               "host": [
@@ -1814,7 +1821,7 @@
   ],
   "variable": [
     {
-      "id": "68873af7-0dfe-4b25-816a-9840a88976c9",
+      "id": "5266d458-a2d4-4ae7-bc3c-440b76c7b0eb",
       "key": "baseUrl",
       "value": "petstore.swagger.io/v2",
       "type": "string"
